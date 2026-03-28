@@ -5,23 +5,34 @@ mongoose.connect('mongodb://localhost:27017/myprojectDB', {
   useUnifiedTopology: true,
 });
 
-const sampleProject = new Project({
-title: "Kitten 4",
-image: "images/kitten-4.jpg",
-link: "About Kitten 4",
-description: "Demo description about kitten 4"
-});
-
-sampleProject.save().then(() => console.log("Sample project saved!"));
-
 const ProjectSchema = new mongoose.Schema({
-  title: String,
-  image: String,
-  link: String,
-  description: String,
+title: {
+type: String,
+required: true,
+minlength: 3
+},
+image: {
+type: String,
+required: true
+},
+link: {
+type: String,
+required: true
+},
+description: {
+type: String,
+required: true,
+maxlength: 500
+}
 });
 
 const Project = mongoose.model('Project', ProjectSchema);
+
+const project = await Project.findOneAndUpdate(
+{ _id: req.body.id },       // update only this document
+{ $set: req.body },         // update specific fields
+{ runValidators: true }     // ensure schema validation
+);
 
 const sampleData = [
   {
@@ -37,7 +48,6 @@ const sampleData = [
     description: "Loves to nap in sunbeams",
   },
 ];
-
 
 Project.insertMany(sampleData)
   .then(() => {
