@@ -5,6 +5,15 @@ mongoose.connect('mongodb://localhost:27017/myprojectDB', {
   useUnifiedTopology: true,
 });
 
+const sampleProject = new Project({
+title: "Kitten 4",
+image: "images/kitten-4.jpg",
+link: "About Kitten 4",
+description: "Demo description about kitten 4"
+});
+
+sampleProject.save().then(() => console.log("Sample project saved!"));
+
 const ProjectSchema = new mongoose.Schema({
   title: String,
   image: String,
@@ -28,6 +37,7 @@ const sampleData = [
     description: "Loves to nap in sunbeams",
   },
 ];
+
 
 Project.insertMany(sampleData)
   .then(() => {

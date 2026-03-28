@@ -41,4 +41,12 @@ nav {
     background-color: #210f4e;
     margin-bottom: 10px;
   }
+
+.card-reveal {
+  color: black;
+}
+ .card-reveal .card-title,
+ .card-reveal p {
+  color: black;
+}
   

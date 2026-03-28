@@ -1,26 +1,20 @@
 const cardList = [
 {
-title: "Book 2",
-image: "images/book2.jpg",
-link: "About Book 2",
-desciption: "Demo desciption about Book 2"
+title: "Kitten 2",
+image: "images/kitten-2.jpg",
+link: "About Kitten 2",
+desciption: "Demo desciption about kitten 2"
 },
 {
-title: "Book 3",
-image: "images/book3.jpg",
-link: "About Book 3",
-desciption: "Demo desciption about Book 3"
+title: "Kitten 3",
+image: "images/kitten-3.jpg",
+link: "About Kitten 3",
+desciption: "Demo desciption about kitten 3"
 }
 ]
 const clickMe = () => {
 alert("Thanks for clicking me. Hope you have a nice day!")
 }
-$(document).ready(function(){
-$('.materialboxed').materialbox();
-$('#clickMeButton').click(()=>{
-clickMe();
-})
-});
 const submitForm = () => {
 let formData = {};
 formData.first_name = $('#first_name').val();
@@ -50,10 +44,9 @@ submitForm();
 getProjects();
 $('.modal').modal();
 });
-//addCards(cardList);
-//$('.modal').modal();
-//});
-
+addCards(cardList);
+$('.modal').modal();
+});
 const getProjects = () => {
 $.get('/api/projects',(response) => {
 if(response.statusCode==200){
