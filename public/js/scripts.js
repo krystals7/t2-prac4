@@ -1,11 +1,11 @@
 const cardList = [
-    {
+     {
      title: "Kitten 2",
      image: "images/kitten2.png",
      link: "About Kitten 2",
      desciption: "Demo desciption about kitten 2"
-    },
-    {
+     },
+     {
      title: "Kitten 3",
      image: "images/kitten3.png",
      link: "About Kitten 3",
@@ -17,7 +17,7 @@ const cardList = [
     }
     
     const addCards = (items) => {
-    items.forEach(item => {
+     items.forEach(item => {
      let itemToAppend = '<div class="col s4 center-align">'+
      '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+item.image+'">'+
      '</div><div class="card-content">'+
@@ -32,10 +32,19 @@ const cardList = [
     
     
     
-    $(document).ready(function(){
-     $('.materialboxed').materialbox();
-     $('#clickMe').click(()=>{
-     clickMe();
-     })
-     addCards(cardList);
-     });
+   $(document).ready(function(){
+$('.materialboxed').materialbox();
+$('#formSubmit').click(()=>{
+submitForm();
+})
+getProjects();
+$('.modal').modal();
+});
+
+     const getProjects = () => {
+$.get('/api/projects',(response) => {
+if(response.statusCode==200){
+addCards(response.data);
+}
+})
+}

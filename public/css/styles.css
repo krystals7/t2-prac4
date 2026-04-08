@@ -5,16 +5,6 @@ nav {
     width: 90%;
     margin: 0 auto;
   }
-  nav .brand-logo {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  nav .brand-logo img {
-    display: block;
-    height: 50px;
-}
   .user-image-size {
     height: 56px;
     margin: 4px 0;
@@ -41,12 +31,4 @@ nav {
     background-color: #210f4e;
     margin-bottom: 10px;
   }
-
-.card-reveal {
-  color: black;
-}
- .card-reveal .card-title,
- .card-reveal p {
-  color: black;
-}
   
